@@ -1,0 +1,10 @@
+# Dependency directory
+node_modules
+
+# Build directory
+public/
+.DS_Store
+
+# flow-typed
+flow-typed/npm/*
+!flow-typed/npm/module_vx.x.x.js

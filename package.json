@@ -1,0 +1,36 @@
+{
+  "name": "han0110.github.io",
+  "description": "Jason Jian's portfolio",
+  "version": "1.0.0",
+  "author": "Jason Jian",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "flow-typed": "rimraf flow-typed/npm && flow-typed install --overwrite || true",
+    "lint:js": "eslint . && flow check .",
+    "deploy": "gatsby build && gh-pages -b master -d public -m '☄️ Deploy'"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.158",
+    "gatsby-link": "^1.6.34",
+    "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-sass": "^1.0.16",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-flowtype": "^2.42.0",
+    "eslint-plugin-flowtype-errors": "^3.3.7",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.6.0",
+    "flow-bin": "^0.64.0",
+    "flow-typed": "^2.2.3",
+    "rimraf": "^2.6.2"
+  }
+}
