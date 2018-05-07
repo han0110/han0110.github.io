@@ -1,12 +1,22 @@
-# Project dependencies
-node_modules/
+# Dependency directory
+node_modules
 
-# Build directory
-public/
-.cache/
+# OSX
 .DS_Store
-yarn-error.log
+
+# App packaged
+.cache
+public
+
+# Compiled binary addons
+.eslintcache
 
 # flow-typed
 flow-typed/npm/*
 !flow-typed/npm/module_vx.x.x.js
+
+# vscode
+.vscode
+
+# yarn
+yarn-error.log

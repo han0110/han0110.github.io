@@ -1,0 +1,21 @@
+.about {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__roles {
+    display: flex;
+    justify-content: center;
+
+    > h2:not(:first-child) {
+      &::before {
+        content: "|";
+        padding: 0 15px;
+        color: #a0a0a0;
+      }
+    }
+  }
+}

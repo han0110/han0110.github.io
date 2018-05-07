@@ -1,0 +1,10 @@
+.projects {
+  &__wrapper {
+    max-width: 1080px;
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

@@ -1,10 +1,10 @@
+// @flow
+
 import React from 'react';
 
-import styles from './projects.module.scss';
-
 const Projects = () => (
-  <div className={styles.wrapper}>
-    projects
+  <div>
+    <h4>projects</h4>
   </div>
 );
 
