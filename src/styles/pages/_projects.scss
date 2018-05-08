@@ -1,10 +1,78 @@
 .projects {
   &__wrapper {
-    max-width: 1080px;
-    padding: 15px;
-    flex-grow: 1;
+    width: 100%;
+    max-width: 640px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.3s;
+
+    &[data-active="true"] {
+      min-height: 300px;
+      opacity: 1;
+    }
+
+    > h2 {
+      display: flex;
+      align-items: center;
+
+      &::after {
+        content: ""attr(data-status);
+        margin-left: 15px;
+        font-size: 1rem;
+        color: #a0a0a0;
+      }
+    }
+
+    > a {
+      margin-right: auto;
+      color: #4183d7;
+      opacity: 1;
+      transition: opacity 0.1s ease-in-out;
+
+      &:hover { opacity: 0.7; }
+
+      > p {
+        &::before {
+          content: ">";
+          margin: 0 5px;
+        }
+      }
+
+    }
+  }
+
+  &__cards {
+    width: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    > div {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.9;
+
+      > img {
+        width: 50px;
+        height: 50px;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }

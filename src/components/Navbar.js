@@ -11,7 +11,6 @@ const Navbar = ({ pathname }: Props) => {
   const links = [
     { id: 'About', to: '/' },
     { id: 'Projects', to: '/projects' },
-    { id: 'Tags', to: '/tags' },
   ];
 
   return (
