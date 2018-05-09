@@ -14,7 +14,7 @@ const projects = [
     content: {
       abstract: [
         'A website for NTUEE\'s MakerSpace.We hope everyone in this MakerSpace can participate the construction of it, no matter projects, events, rules, or any idea.',
-        'By Gatsby (a static site framework), we make contribution easier. Contributor only need to write markdown but no javascript.',
+        'By Gatsby (a static site framework), we make contribution easier. Contributor only needs to write markdown but no javascript.',
       ],
       status: 'On Progress',
       demo: 'https://ntuee-maker.github.io/',
@@ -73,7 +73,7 @@ class Projects extends Component<{}, State> {
                 <h2 data-status={status} style={{ color: theme }}>{title}</h2>
                 { abstract.map(a => <p>{a}</p>) }
                 <a href={demo} rel="noopener noreferrer" target="_blank"><p>demo</p></a>
-                <a href={source} rel="noopener noreferrer" target="_blank"><p>soruce</p></a>
+                <a href={source} rel="noopener noreferrer" target="_blank"><p>source</p></a>
               </div>
             ))
           }
