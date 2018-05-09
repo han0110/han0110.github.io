@@ -12,11 +12,11 @@
     height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: opacity 0.3s;
 
     &[data-active="true"] {
-      min-height: 300px;
       opacity: 1;
+      min-height: 300px;
+      animation: fadeIn 0.3s;
     }
 
     > h2 {
@@ -29,6 +29,11 @@
         font-size: 1rem;
         color: #a0a0a0;
       }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
     }
 
     > a {
@@ -56,7 +61,7 @@
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
-    > div {
+    > a {
       width: 100%;
       height: 200px;
       display: flex;
@@ -75,4 +80,9 @@
       }
     }
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

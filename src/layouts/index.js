@@ -27,7 +27,7 @@ class Layout extends Component<Props, State> {
     return (
       <div className="layout__wrapper">
         <Navbar pathname={location.pathname} />
-        <div className="layout__children">{children()}</div>
+        <div className="layout__children">{children({ ...this.props })}</div>
       </div>
     );
   }

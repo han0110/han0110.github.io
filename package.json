@@ -9,6 +9,7 @@
     "build": "yarn clean && gatsby build",
     "serve": "gatsby serve",
     "lint:js": "eslint . && flow check .",
+    "lint:md": "remark -q .",
     "clean": "bash ./clean.sh",
     "flow-typed": "rimraf flow-typed/npm && flow-typed install --overwrite || true",
     "deploy": "yarn build && gh-pages -b master -d public -m '☄️ Deploy'"
@@ -19,7 +20,8 @@
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-postcss-sass": "^1.0.20",
     "gatsby-plugin-resolve-src": "^1.1.3",
-    "gatsby-source-filesystem": "^1.5.35"
+    "gatsby-source-filesystem": "^1.5.35",
+    "gatsby-transformer-remark": "^1.7.40"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
@@ -34,6 +36,9 @@
     "flow-bin": "^0.64.0",
     "flow-typed": "^2.2.3",
     "gh-pages": "^1.1.0",
+    "remark-cli": "^5.0.0",
+    "remark-frontmatter": "^1.2.0",
+    "remark-preset-lint-recommended": "^3.0.1",
     "rimraf": "^2.6.2"
   }
 }
