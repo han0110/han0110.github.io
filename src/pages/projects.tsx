@@ -1,38 +1,36 @@
-// @flow
-
-import React from 'react';
+import * as React from 'react';
 import GatsbyLink from 'gatsby-link';
 
-type Props = {
+interface Props {
   data: {
     allMarkdownRemark: {
-      totalCount: number,
+      totalCount: number;
       edges: Array<{
         node: {
-          html: string,
+          html: string;
           frontmatter: {
-            title: string,
-            theme: string,
-            date: string,
-            status: string,
-            demo: string,
-            source: string,
-          },
+            title: string;
+            theme: string;
+            date: string;
+            status: string;
+            demo: string;
+            source: string;
+          };
           fields: {
-            slug: string,
-            icon: string,
-          },
-        }
+            slug: string;
+            icon: string;
+          };
+        };
       }>
-    }
-  },
+    };
+  };
   location: {
-    pathname: string
-  },
-};
+    pathname: string;
+  };
+}
 
 const Projects = ({ data: { allMarkdownRemark }, location: { pathname } }: Props) => {
-  const nodes = allMarkdownRemark.edges.map(edge => ({ ...edge.node }));
+  const nodes = allMarkdownRemark.edges.map((edge) => ({ ...edge.node }));
 
   return (
     <div className="projects__wrapper">
@@ -71,7 +69,6 @@ const Projects = ({ data: { allMarkdownRemark }, location: { pathname } }: Props
 
 export default Projects;
 
-// $FlowIgnore
 export const query = graphql`
   query ProjectsQuery {
     allMarkdownRemark(

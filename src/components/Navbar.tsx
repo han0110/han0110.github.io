@@ -1,11 +1,9 @@
-// @flow
-
-import React from 'react';
+import * as React from 'react';
 import Link, { withPrefix } from 'gatsby-link';
 
-type Props = {
-  pathname: string,
-};
+interface Props {
+  pathname: string;
+}
 
 const Navbar = ({ pathname }: Props) => {
   const links = [

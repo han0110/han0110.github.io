@@ -1,9 +1,7 @@
-// @flow
+import * as React from 'react';
 
-import React from 'react';
-
-import emailIcon from 'assets/images/emailIcon.svg';
-import fbIcon from 'assets/images/fbIcon.svg';
+import * as emailIcon from 'assets/images/emailIcon.svg';
+import * as fbIcon from 'assets/images/fbIcon.svg';
 
 const Contact = () => {
   const contacts = [
@@ -15,7 +13,7 @@ const Contact = () => {
     <div className="contact__wrapper">
       {
         contacts.map(({ src, href, show }) => (
-          <div>
+          <div key={href}>
             <img
               src={src}
               alt={show}

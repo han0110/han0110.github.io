@@ -1,6 +1,4 @@
-// @flow
-
-import React from 'react';
+import * as React from 'react';
 
 import Contact from 'components/about/Contact';
 

@@ -2,6 +2,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-plugin-resolve-src',
     {
       resolve: 'gatsby-source-filesystem',
