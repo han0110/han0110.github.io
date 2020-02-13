@@ -3,7 +3,7 @@ schema:
 documents: []
 config: {}
 generates:
-  ./src/types/graphql.d.ts:
+  ./frontend/types/graphql.d.ts:
     config:
       namingConvention: keep
     plugins:
