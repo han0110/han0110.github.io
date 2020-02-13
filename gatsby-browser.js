@@ -1,1 +1,1 @@
-require('./src/styles/style.scss')
+require('./frontend/styles/style.scss')

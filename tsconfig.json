@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src/",
-    "outDir": "./dist/",
+    "baseUrl": "./frontend/",
     "sourceMap": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -36,7 +35,7 @@
     },
   },
   "include": [
-    "./src/**/*"
+    "./frontend/**/*"
   ],
   "typeRoots": [
     "node_modules/@types"
