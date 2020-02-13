@@ -8,12 +8,11 @@ node_modules
 .cache
 public
 
-# vscode
+# Eslint
+.eslintcache
+
+# Vscode
 .vscode
 
-# log
-*.log
-
-# lock file
-yarn.lock
+# Lock file
 package-lock.json

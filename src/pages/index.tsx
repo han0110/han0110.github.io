@@ -1,6 +1,7 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import Contact from 'components/about/Contact';
+import { withLayout } from 'components/Layout'
+import Contact from 'components/about/Contact'
 
 const About = () => (
   <div className="about__wrapper">
@@ -13,6 +14,6 @@ const About = () => (
     <p>Studying at National Taiwan University now</p>
     <Contact />
   </div>
-);
+)
 
-export default About;
+export default withLayout(About)

@@ -1,16 +1,8 @@
-const autoprefixer = require('autoprefixer');
+const postCssPlugins = require('./postcss.config.js')
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-typescript',
     'gatsby-plugin-resolve-src',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'src',
-        path: `${__dirname}/src/`,
-      },
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -24,11 +16,27 @@ module.exports = {
         plugins: [],
       },
     },
+    'gatsby-plugin-typescript',
     {
-      resolve: 'gatsby-plugin-postcss-sass',
+      resolve: 'gatsby-plugin-eslint',
       options: {
-        postCssPlugins: [autoprefixer()],
+        test: /\.ts$|\.tsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        postCssPlugins,
+        cssLoaderOptions: {
+          camelCase: false,
+        },
       },
     },
   ],
-};
+}

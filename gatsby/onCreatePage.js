@@ -1,12 +1,18 @@
 /* eslint-disable no-multi-assign */
-/* eslint-disable no-param-reassign */
 
-module.exports = exports.onCreatePage = async ({ page, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+module.exports = exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage, deletePage } = actions
 
-  if (page.path.match(/^\/projects/)) {
-    page.matchPath = '/projects/:title';
-
-    createPage(page);
+  if (page.path.match(/^\/projects\//)) {
+    // Delete `/projects/`
+    deletePage(page)
+    // Create `/projects`
+    createPage({ ...page, path: page.path.replace(/\/$/, '') })
+    // Create `/projects/:title`
+    createPage({
+      ...page,
+      path: '/projects/:title',
+      matchPath: '/projects/:title',
+    })
   }
-};
+}
