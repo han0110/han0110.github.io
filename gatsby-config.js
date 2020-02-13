@@ -2,7 +2,12 @@ const postCssPlugins = require('./postcss.config.js')
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-resolve-src',
+    {
+      resolve: 'gatsby-plugin-page-creator',
+      options: {
+        path: `${__dirname}/frontend/pages`,
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

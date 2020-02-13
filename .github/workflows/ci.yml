@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  ci:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install package
+        run: yarn
+
+      - name: Lint Typescript
+        run: yarn lint:ts
+
+      - name: Lint Markdown
+        run: yarn lint:md
+
+      - name: Build
+        run: yarn build
