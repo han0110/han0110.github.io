@@ -1,10 +1,10 @@
 /* eslint-disable no-multi-assign */
-const { resolve } = require('path')
+const { rootResolve } = require('./util')
 
 module.exports = exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [resolve(__dirname, '../frontend'), 'node_modules'],
+      modules: [rootResolve('frontend'), 'node_modules'],
     },
   })
 }

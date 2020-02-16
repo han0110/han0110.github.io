@@ -11,26 +11,41 @@ module.exports = exports.onCreateNode = ({
   const { createNodeField } = actions
 
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({
+    const path = createFilePath({
       node,
       getNode,
       basePath: 'content',
+      trailingSlash: false,
     })
 
+    const [page, slug] = path.replace(new RegExp('/(.+)/(.+)'), '$1 $2').split(' ')
+    createNodeField({
+      node,
+      name: 'page',
+      value: page,
+    })
     createNodeField({
       node,
       name: 'slug',
-      value: slug.replace(/\/$/, ''),
+      value: slug,
     })
 
-    if (slug.match(/^\/projects\//) !== null) {
-      const base64 = readFileSync(`./content${slug}icon.svg`).toString('base64')
-
-      createNodeField({
-        node,
-        name: 'icon',
-        value: `data:image/svg+xml;base64,${base64}`,
-      })
+    switch (page) {
+      case 'projects': {
+        const base64 = readFileSync(`./content/projects/${slug}/icon.svg`).toString('base64')
+        createNodeField({
+          node,
+          name: 'icon',
+          value: `data:image/svg+xml;base64,${base64}`,
+        })
+        break
+      }
+      case 'blog': {
+        // Do nothing but using `gatsby-plugin-sharp` to get thumbnail directly
+        // Issue referenced: https://github.com/gatsbyjs/gatsby/issues/2054
+        break
+      }
+      default:
     }
   }
 }

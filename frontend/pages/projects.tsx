@@ -6,11 +6,14 @@ import { Query } from 'types/graphql'
 
 interface Props extends LayoutProps {
   data: Query,
+  pageContext: {
+    slug: string,
+  },
 }
 
 const Projects = ({
   data: { allMarkdownRemark },
-  location: { pathname },
+  pageContext: { slug: currentSlug }
 }: Props) => {
   const nodes = allMarkdownRemark.edges.map((edge) => ({ ...edge.node }))
 
@@ -25,7 +28,7 @@ const Projects = ({
           }) => (
             <div
               className="projects__content"
-              data-active={slug === pathname}
+              data-active={slug === currentSlug}
               key={title}
             >
               <h2 data-status={status} style={{ color: theme }}>
@@ -48,7 +51,7 @@ const Projects = ({
       <div className="projects__cards">
         {nodes.map(
           ({ frontmatter: { title, theme }, fields: { slug, icon } }) => (
-            <Link style={{ backgroundColor: theme }} to={slug} key={slug}>
+            <Link style={{ backgroundColor: theme }} to={`/projects/${slug}`} key={slug}>
               <img src={icon} alt={title} />
             </Link>
           ),
@@ -63,7 +66,7 @@ export default withLayout(Projects)
 export const query = graphql`
   query ProjectsQuery {
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "//projects//" } } }
+      filter: { fields: { page: { eq: "projects" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
