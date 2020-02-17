@@ -10,7 +10,7 @@
     "serve": "gatsby serve",
     "lint:ts": "eslint . --ext .ts,.tsx --cache",
     "lint:md": "remark -q content/**/*.md",
-    "codegen:graphql": "graphql-codegen --config ./graphql-config.yml",
+    "codegen:gql": "graphql-codegen --config ./graphql-config.yml",
     "clean": "rm -rf .cache public"
   },
   "devDependencies": {
