@@ -1,6 +1,10 @@
 const postCssPlugins = require('./postcss.config.js')
 
 module.exports = {
+  siteMetadata: {
+    url: 'https://tinghan.dev',
+    title: 'Han\'s Profilio',
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-page-creator',
@@ -42,6 +46,33 @@ module.exports = {
           camelCase: false,
         },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl: url
+              }
+            }
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+          }
+        `,
+        output: '/sitemap.xml',
+        serialize: ({ site, allSitePage }) => allSitePage.edges.map((edge) => ({
+          url: site.siteMetadata.siteUrl + edge.node.path,
+          changefreq: 'monthly',
+          priority: 0.7
+        }))
+      }
     },
   ],
 }
