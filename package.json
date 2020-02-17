@@ -10,7 +10,7 @@
     "serve": "gatsby serve",
     "lint:ts": "eslint . --ext .ts,.tsx --cache",
     "lint:md": "remark -q content/**/*.md",
-    "codegen:graphql": "graphql-codegen --config ./graphql-config.yml",
+    "codegen:gql": "graphql-codegen --config ./graphql-config.yml",
     "clean": "rm -rf .cache public"
   },
   "devDependencies": {
@@ -28,6 +28,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "gatsby": "^2.19.16",
@@ -35,6 +36,7 @@
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-page-creator": "^2.1.40",
     "gatsby-plugin-sass": "^2.1.28",
+    "gatsby-plugin-sitemap": "^2.2.27",
     "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-remark": "^2.6.50",

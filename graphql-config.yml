@@ -12,3 +12,6 @@ generates:
       - add: /* eslint-disable camelcase */
       - "typescript"
 require: []
+hooks:
+  afterOneFileWrite:
+    - eslint --fix

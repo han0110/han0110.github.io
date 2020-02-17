@@ -3,11 +3,7 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 const { readFileSync } = require('fs')
 
-module.exports = exports.onCreateNode = ({
-  node,
-  getNode,
-  actions,
-}) => {
+module.exports = exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'MarkdownRemark') {
@@ -18,7 +14,9 @@ module.exports = exports.onCreateNode = ({
       trailingSlash: false,
     })
 
-    const [page, slug] = path.replace(new RegExp('/(.+)/(.+)'), '$1 $2').split(' ')
+    const [page, slug] = path
+      .replace(new RegExp('/(.+)/(.+)'), '$1 $2')
+      .split(' ')
     createNodeField({
       node,
       name: 'page',
@@ -32,11 +30,12 @@ module.exports = exports.onCreateNode = ({
 
     switch (page) {
       case 'projects': {
-        const base64 = readFileSync(`./content/projects/${slug}/icon.svg`).toString('base64')
+        const iconPath = `./content/projects/${slug}/icon.svg`
+        const iconBase64 = readFileSync(iconPath).toString('base64')
         createNodeField({
           node,
           name: 'icon',
-          value: `data:image/svg+xml;base64,${base64}`,
+          value: `data:image/svg+xml;base64,${iconBase64}`,
         })
         break
       }

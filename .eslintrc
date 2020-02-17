@@ -5,7 +5,8 @@
     "prettier/react"
   ],
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "rules": {
@@ -28,7 +29,8 @@
           ".jsx"
         ]
       }
-    ]
+    ],
+    "prettier/prettier": "error"
   },
   "overrides": [
     {
