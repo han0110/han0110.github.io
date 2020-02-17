@@ -5,17 +5,17 @@ import { withLayout, LayoutProps } from 'components/Layout'
 import { Query } from 'types/graphql'
 
 interface Props extends LayoutProps {
-  data: Query,
+  data: Query
   pageContext: {
-    slug: string,
-  },
+    slug: string
+  }
 }
 
 const Projects = ({
   data: { allMarkdownRemark },
-  pageContext: { slug: currentSlug }
+  pageContext: { slug: currentSlug },
 }: Props) => {
-  const nodes = allMarkdownRemark.edges.map((edge) => ({ ...edge.node }))
+  const nodes = allMarkdownRemark.edges.map(edge => ({ ...edge.node }))
 
   return (
     <div className="projects__wrapper">
@@ -51,7 +51,11 @@ const Projects = ({
       <div className="projects__cards">
         {nodes.map(
           ({ frontmatter: { title, theme }, fields: { slug, icon } }) => (
-            <Link style={{ backgroundColor: theme }} to={`/projects/${slug}`} key={slug}>
+            <Link
+              style={{ backgroundColor: theme }}
+              to={`/projects/${slug}`}
+              key={slug}
+            >
               <img src={icon} alt={title} />
             </Link>
           ),
